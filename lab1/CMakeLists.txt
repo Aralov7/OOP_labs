@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(gtest)
+project(lab1)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,8 +19,14 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+set(INCLUDE_DIR ${CMAKE_CURRENT_SOURSE_DIR}/include)
+set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-add_library(${CMAKE_PROJECT_NAME}_lib src/lab1.cpp)
+file(GLOB_RECURSE SOURCES LIST_DIRECTORIES false ${SOURCE_DIR}/*.cpp)
+
+include_directories(${INCLUDE_DIR})
+
+add_library(${CMAKE_PROJECT_NAME}_lib ${SOURCES})
 add_executable(${CMAKE_PROJECT_NAME}_exe main.cpp)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}_exe PRIVATE ${CMAKE_PROJECT_NAME}_lib)
@@ -28,8 +34,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}_exe PRIVATE ${CMAKE_PROJECT_NAME}_li
 # Добавление тестов
 enable_testing()
 
-add_executable(lab1_tests tests/test_lab1.cpp)
-target_link_libraries(lab1_tests ${CMAKE_PROJECT_NAME}_lib gtest_main)
+add_executable(${CMAKE_PROJECT_NAME}_tests tests/test_${CMAKE_PROJECT_NAME}.cpp)
+target_link_libraries(${CMAKE_PROJECT_NAME}_tests ${CMAKE_PROJECT_NAME}_lib gtest_main)
 
 # Добавление тестов в тестовый набор
-add_test(NAME MyProjectTests COMMAND lab1_tests)
+add_test(NAME MyProjectTests COMMAND ${CMAKE_PROJECT_NAME}_tests)

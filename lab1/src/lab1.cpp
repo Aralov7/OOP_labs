@@ -1,9 +1,5 @@
 #include "../include/lab1.h"
 
-
-#include <iostream>
-#include <cctype>
-
 // Функция для подсчета количества гласных букв в строке
 int countVowels(const std::string& str) {
     int count = 0;

@@ -1,0 +1,64 @@
+
+#include "../Lab2/include/Four.h"
+#include <iostream>
+#include <string>
+
+int main()
+{
+  try{
+    std::string input1, input2;
+    std::string operation;
+  
+    std::cout << "Введите первое четвиричное число: ";
+    std::cin >> input1;
+    std::cout << "Введите второе четверичное число: ";
+    std::cin >> input2;
+    std::cout << "Выберите операцию (+, -, ==, !=, <, >, <=, >=): ";
+    std::cin >> operation;
+  
+    Four num1(input1);
+    Four num2(input2);
+  
+    if (operation == "+")
+    {
+      Four result = num1.add(num2);
+      std::cout << "Результат сложения: " << result.toString() << std::endl;
+    }
+    else if (operation == "-")
+    {
+      Four result = num1.subtract(num2);
+      std::cout << "Результат вычитания: " << result.toString() << std::endl;
+    }
+    else if (operation == "==")
+    {
+      std::cout << (num1.isEqual(num2) ? "Числа равны" : "Числа не равны") << std::endl;
+    }
+    else if (operation == "!=")
+    {
+      std::cout << (num1.isNotEqual(num2) ? "Числа не равны" : "Числа равны") << std::endl;
+    }
+    else if (operation == "<")
+    {
+      std::cout << (num1.isLessThan(num2) ? "Первое число меньше второго" : "Первое число не меньше второго") << std::endl;
+    }
+    else if (operation == ">")
+    {
+      std::cout << (num1.isGreaterThan(num2) ? "Первое число больше второго" : "Первое число не больше второго") << std::endl;
+    }
+    else if (operation == "<=")
+    {
+      std::cout << (num1.isLessThanOrEqual(num2) ? "Первое число меньше или равно второму" : "Первое число больше второго") << std::endl;
+    }
+    else if (operation == ">=")
+    {
+      std::cout << (num1.isGreaterThanOrEqual(num2) ? "Первое число больше или равно второму" : "Первое число меньше второго") << std::endl;
+    }
+    else
+    {
+      std::cout << "Неверная операция" << std::endl;
+    }
+   } catch (const std::exception& e) {
+        std::cerr << "Необработанное исключение: " << e.what() << std::endl;
+    }
+  return 0;
+}

@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 project(lab3)
-set(CMAKE_PROJECT_NAME lab3)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -27,16 +26,16 @@ file(GLOB_RECURSE SOURCES LIST_DIRECTORIES false ${SOURCE_DIR}/*.cpp)
 
 include_directories(${INCLUDE_DIR})
 
-add_library(${CMAKE_PROJECT_NAME}_lib ${SOURCES})
-add_executable(${CMAKE_PROJECT_NAME}_exe main.cpp)
+add_library(${PROJECT_NAME}_lib ${SOURCES})
+add_executable(${PROJECT_NAME}_exe main.cpp)
 
-target_link_libraries(${CMAKE_PROJECT_NAME}_exe PRIVATE ${CMAKE_PROJECT_NAME}_lib)
+target_link_libraries(${PROJECT_NAME}_exe PRIVATE ${PROJECT_NAME}_lib)
 
 # Добавление тестов
 enable_testing()
 
-add_executable(${CMAKE_PROJECT_NAME}_tests tests/test_${CMAKE_PROJECT_NAME}.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME}_tests ${CMAKE_PROJECT_NAME}_lib gtest_main)
+add_executable(${PROJECT_NAME}_tests tests/test_${PROJECT_NAME}.cpp)
+target_link_libraries(${PROJECT_NAME}_tests ${PROJECT_NAME}_lib gtest_main)
 
 # Добавление тестов в тестовый набор
-add_test(NAME MyProjectTests COMMAND ${CMAKE_PROJECT_NAME}_tests)
+add_test(NAME MyProjectTests COMMAND ${PROJECT_NAME}_tests)

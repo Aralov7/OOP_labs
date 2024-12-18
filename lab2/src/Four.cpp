@@ -34,7 +34,7 @@ Four::Four(const std::initializer_list<unsigned char> &t)
     {
         for (auto it = t.begin(); it != t.end(); ++it, ++index)
         {
-            if (*it > 3)
+            if (*it < '0' || *it > '3')
                 throw std::invalid_argument("Цифра должна быть от 0 до 3");
 
             digits[index] = *it;

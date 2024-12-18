@@ -1,6 +1,5 @@
 #pragma once
 #include "Figure.h"
-using namespace std;
 
 class Square : public Figure
 {

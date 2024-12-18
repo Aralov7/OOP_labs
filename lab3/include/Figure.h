@@ -1,8 +1,6 @@
 #pragma once
 #include "func.h"
 #include <iostream>
-#include <utility>
-#include <vector>
 
 class Figure {
 public:

@@ -1,5 +1,4 @@
 #include "../include/Rectangle.h"
-#include <iostream>
 using namespace std;
 
 Rectangle::Rectangle() : vertices(4) {}

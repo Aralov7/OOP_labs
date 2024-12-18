@@ -1,4 +1,3 @@
-#include <iostream>
 #include "include/Triangle.h"
 #include "include/Square.h"
 #include "include/Rectangle.h"

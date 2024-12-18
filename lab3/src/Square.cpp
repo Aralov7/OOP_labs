@@ -1,5 +1,4 @@
 #include "../include/Square.h"
-#include <iostream>
 using namespace std;
 
 Square::Square() : vertices(4) {}

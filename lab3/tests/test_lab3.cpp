@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
-#include "../include/Figure.h"
+#include "../include/Triangle.h"
+#include "../include/Square.h"
+#include "../include/Rectangle.h"
+
 
 using namespace std;
 

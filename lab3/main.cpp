@@ -1,6 +1,7 @@
 #include <iostream>
-#include "include/Figure.h"
-#include <vector>
+#include "include/Triangle.h"
+#include "include/Square.h"
+#include "include/Rectangle.h"
 #include <memory>
 
 using namespace std;
